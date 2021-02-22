@@ -1,6 +1,6 @@
 {
-  "name": "Telegram ProjectAlf",
-  "description": "[ProjectAlf] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database.",
+  "name": "Deathnotevars Bot",
+  "description": "A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database.",
   "keywords": [
     "telegram",
     "userbot",
@@ -8,9 +8,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/alfianandaa/ProjectAlf",
+  "repository": "https://github.com/ronaldyganteng/Deathnotevars",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02",
-  "success_url": "https://t.me/userbotindo",
+  "success_url": "https://t.me/afterdaytoxic",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -53,7 +53,7 @@
     },
     "BOTLOG": {
       "description": "Incase you want to turn off logging, put this to false",
-      "value": "False"
+      "value": "True"
     },
     "BOTLOG_CHATID": {
       "description": "ChatID of the Log group. Set it to '0' if BOTLOG = False and/or if LOGSPAMMER = False.",
@@ -121,7 +121,7 @@
     },
     "ALIVE_NAME": {
       "description": "Name to show in .alive message",
-      "required": false
+      "required": true
     },
     "G_DRIVE_DATA": {
       "description": "Your client_secret.json.",
@@ -188,7 +188,7 @@
     {
       "plan": "heroku-postgresql",
       "options": {
-        "version": "12"
+        "version": "13"
       }
     }
   ]
