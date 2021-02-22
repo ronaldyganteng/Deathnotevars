@@ -47,7 +47,9 @@ async def sleepybot(time):
 async def killthebot(event):
     await event.edit("`Goodbye...`")
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n" "Diriku Mau Off-Dulu!")
+        await event.client.send_message(
+            BOTLOG_CHATID, "#SHUTDOWN \n" "Diriku Mau Off-Dulu!"
+        )
     await bot.disconnect()
 
 
@@ -55,7 +57,9 @@ async def killthebot(event):
 async def killdabot(event):
     await event.edit("`*i would be back in a moment*`")
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "#RESTART \n" "Diriku Sedang Di-Restart!")
+        await event.client.send_message(
+            BOTLOG_CHATID, "#RESTART \n" "Diriku Sedang Di-Restart!"
+        )
     await bot.disconnect()
     # Spin a new instance of bot
     execl(sys.executable, sys.executable, *sys.argv)
