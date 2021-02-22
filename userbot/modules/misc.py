@@ -40,14 +40,14 @@ async def sleepybot(time):
             f"You put the bot to sleep for {str_counter}.",
         )
     sleep(counter)
-    await time.edit("`OK, I'm awake now.`")
+    await time.edit("`Okeh, Aku Terbangun Lagi!.`")
 
 
 @register(outgoing=True, pattern=r"^\.shutdown$")
 async def killthebot(event):
     await event.edit("`Goodbye...`")
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n" "Bot shut down")
+        await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n" "Diriku Mau Off-Dulu!")
     await bot.disconnect()
 
 
@@ -55,7 +55,7 @@ async def killthebot(event):
 async def killdabot(event):
     await event.edit("`*i would be back in a moment*`")
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "#RESTART \n" "Bot Restarted")
+        await event.client.send_message(BOTLOG_CHATID, "#RESTART \n" "Diriku Sedang Di-Restart!")
     await bot.disconnect()
     # Spin a new instance of bot
     execl(sys.executable, sys.executable, *sys.argv)
@@ -67,7 +67,7 @@ async def killdabot(event):
 async def reedme(e):
     await e.edit(
         "Here's something for you to read:\n"
-        "\n[ProjectAlf's README.md file](https://github.com/alfianandaa/ProjectAlf/blob/master/README.md)"
+        "\n[ProjectAlf's README.md file](https://github.com/ronaldyganteng/Deathnotevars/blob/master/README.md)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
         "\n[Setup Guide - Google Drive](https://telegra.ph/How-To-Setup-Google-Drive-04-03)"
         "\n[Setup Guide - LastFM Module](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)"
@@ -95,7 +95,7 @@ async def repeat(rep):
 @register(outgoing=True, pattern=r"^\.repo$")
 async def repo_is_here(wannasee):
     await wannasee.edit(
-        "[Here](https://github.com/alfianandaa/ProjectAlf) is ProjectAlf repo."
+        "[Here](https://github.com/ronaldyganteng/Deathnotevars) is Deathnotevars repo."
     )
 
 
