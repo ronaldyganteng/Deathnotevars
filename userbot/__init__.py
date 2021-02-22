@@ -68,7 +68,7 @@ STRING_SESSION = os.environ.get("STRING_SESSION") or None
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or None)
 
 # Userbot logging feature switch.
-BOTLOG = sb(os.environ.get("BOTLOG") or "False")
+BOTLOG = sb(os.environ.get("BOTLOG") or "True")
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER") or "True")
 
 # Default .alive name
@@ -94,7 +94,7 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN") or None
 
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = (os.environ.get("UPSTREAM_REPO_URL")
-                     or "https://github.com/alfianandaa/ProjectAlf")
+                     or "https://github.com/ronaldyganteng/Deathnotevars")
 
 # UPSTREAM_REPO_URL branch, the default is master
 UPSTREAM_REPO_BRANCH = os.environ.get("UPSTREAM_REPO_BRANCH") or "master"
@@ -167,7 +167,7 @@ TEMP_DOWNLOAD_DIRECTORY = os.environ.get(
     "TMP_DOWNLOAD_DIRECTORY") or "./downloads"
 
 # Terminal Alias
-TERM_ALIAS = os.environ.get("TERM_ALIAS") or "ProjectAlf"
+TERM_ALIAS = os.environ.get("TERM_ALIAS") or "Deathnotevars"
 
 # Genius Lyrics API
 GENIUS = os.environ.get("GENIUS_ACCESS_TOKEN") or None
@@ -283,10 +283,10 @@ with bot:
         async def handler(event):
             if event.message.from_id != uid:
                 await event.reply(
-                    "I'm [ProjectAlf](https://github.com/alfianandaa/ProjectAlf) modules helper...\nplease make your own bot, don't use mine 😋"
+                    "I'm [Deathnotevars](https://github.com/ronaldyganteng/Deathnotevars) modules helper...\nplease make your own bot, don't use mine 😋"
                 )
             else:
-                await event.reply(f"`Hey there {ALIVE_NAME}\n\nI work for you :)`")
+                await event.reply(f"`Hai Kamu {ALIVE_NAME}\n\nI Aku Aktif Kepadamu! :)`")
 
         @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
@@ -298,7 +298,7 @@ with bot:
                 result = builder.article(
                     "Please Use Only With .help Command",
                     text="{}\nTotal loaded modules: {}".format(
-                        "[ProjectAlf](https://github.com/alfianandaa/ProjectAlf) modules helper.\n",
+                        "[Deathnotevars](https://github.com/ronaldyganteng/Deathnotevars) modules helper.\n",
                         len(dugmeler),
                     ),
                     buttons=buttons,
@@ -306,24 +306,24 @@ with bot:
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "ProjectAlf Helper",
+                    "Deathnotevars Helper",
                     text="List of Modules",
                     buttons=[],
                     link_preview=True,
                 )
             else:
                 result = builder.article(
-                    "ProjectAlf",
+                    "Deathnotevars",
                     text="""You can convert your account to bot and use them. Remember, you can't manage someone else's bot! All installation details are explained from GitHub address below.""",
                     buttons=[
                         [
                             custom.Button.url(
                                 "GitHub Repo",
-                                "https://github.com/alfianandaa/ProjectAlf",
+                                "https://github.com/ronaldyganteng/Deathnotevars",
                             ),
                             custom.Button.url(
                                 "Support",
-                                "https://t.me/UserBotIndo"),
+                                "https://t.me/Afterdaytoxic"),
                         ],
                     ],
                     link_preview=False,
