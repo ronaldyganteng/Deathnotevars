@@ -53,8 +53,6 @@ async def pingme(pong):
         f"\n  ➥ `%sms` \n"
         f"**🐣 Deathnotevars!** "
         f"\n  ➥ `{ALIVE_NAME}` \n" % (duration)
-        f"**💉 Bot Active!** "
-        f"\n  ➥ `{uptime}`\n"
     )
 
 
