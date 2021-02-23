@@ -78,10 +78,13 @@ async def pingme(pong):
     await pong.edit("**Kecepatan Internet Kamu!**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit(f"**Kecepatan Internet Kamu!** "
-                    f"\n  ➥ `%sms` \n"
-                    f"**Deathnotevars-** "
-                    f"\n  ➥ `{ALIVE_NAME}` \n" % (duration))
+    await pong.edit(
+        f"**Kecepatan Internet Kamu!** "
+        f"\n  ➥ `%sms` \n"
+        f"**Deathnotevars-** "
+        f"\n  ➥ `{ALIVE_NAME}` \n" % (duration)
+    )
+
 
 CMD_HELP.update(
     {
