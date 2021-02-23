@@ -45,7 +45,7 @@ async def sleepybot(time):
 
 @register(outgoing=True, pattern=r"^\.shutdown$")
 async def killthebot(event):
-    await event.edit("`Goodbye...`")
+    await event.edit("`Dadah Kamu, See You!...`")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID, "#SHUTDOWN \n" "Diriku Mau Off-Dulu!"
@@ -55,7 +55,7 @@ async def killthebot(event):
 
 @register(outgoing=True, pattern=r"^\.restart$")
 async def killdabot(event):
-    await event.edit("`*i would be back in a moment*`")
+    await event.edit("`*Diriku Sedang Direstart, Jadi Sabar Dulu Yakk!`")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID, "#RESTART \n" "Diriku Sedang Di-Restart!"
@@ -71,7 +71,7 @@ async def killdabot(event):
 async def reedme(e):
     await e.edit(
         "Here's something for you to read:\n"
-        "\n[ProjectAlf's README.md file](https://github.com/ronaldyganteng/Deathnotevars/blob/master/README.md)"
+        "\n[Deathnotevars's README.md file](https://github.com/ronaldyganteng/Deathnotevars/blob/master/README.md)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
         "\n[Setup Guide - Google Drive](https://telegra.ph/How-To-Setup-Google-Drive-04-03)"
         "\n[Setup Guide - LastFM Module](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)"
@@ -99,7 +99,7 @@ async def repeat(rep):
 @register(outgoing=True, pattern=r"^\.repo$")
 async def repo_is_here(wannasee):
     await wannasee.edit(
-        "Click My Repositories [Here](https://github.com/ronaldyganteng/Deathnotevars) is Deathnotevars BOT."
+        "Click My Repositories [CLIK DISINI](https://github.com/ronaldyganteng/Deathnotevars) is Deathnotevars BOT."
     )
 
 
