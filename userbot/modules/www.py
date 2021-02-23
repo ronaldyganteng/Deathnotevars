@@ -40,7 +40,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(outgoing=True, pattern="^.sping$")
+@register(outgoing=True, pattern="^.ping$")
 async def pingme(pong):
     """ For .ping command, ping the userbot from any chat.  """
     await get_readable_time((time.time() - StartTime))
@@ -49,10 +49,12 @@ async def pingme(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**✫ Kecepatan Internet Kamu!** "
+        f"**💉 Kecepatan Internet Kamu!** "
         f"\n  ➥ `%sms` \n"
-        f"**✫ Deathnotevars!** "
+        f"**🐣 Deathnotevars!** "
         f"\n  ➥ `{ALIVE_NAME}` \n" % (duration)
+        f"**💉 Bot Active!** "
+        f"\n  ➥ `{uptime}`\n"
     )
 
 
@@ -97,23 +99,9 @@ def speed_convert(size):
     return f"{round(size, 2)} {units[zero]}"
 
 
-@register(outgoing=True, pattern="^.ping$")
-async def pingme(pong):
-    """ For .ping command, ping the userbot from any chat.  """
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    await pong.edit("`Ping, Speed For Internet You!`")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    await pong.edit(
-        f"**✘ Speed Internet! **\n**✘ Pongsyc:** `%sms`\n**✘ Uptime:** `{uptime}`\n**💉~>: {ALIVE_NAME}**"
-        % (duration)
-    )
-
-
 CMD_HELP.update(
     {
-        "ping": "`.ping` ; `.sping`\
+        "ping": "`.ping`\
     \nUsage: Untuk menunjukkan ping bot.\
     \n\n`.speed`\
     \nUsage: Untuk menunjukkan kecepatan.\
