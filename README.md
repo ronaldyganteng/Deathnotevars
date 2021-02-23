@@ -8,7 +8,6 @@
     <a href="https://github.com/ronaldyganteng/Deathnotevars/commits/master"> <img src="https://img.shields.io/github/last-commit/ronaldyganteng/Deathnotevars?color=brightgreen&logo=github&logoColor=green&style=for-the-badge" /></a>
     <a href="https://github.com/ronaldyganteng/Deathnotevars/issues"> <img src="https://img.shields.io/github/issues/ronaldyganteng/Deathnotevars?color=brightgreen&logo=github&logoColor=green&style=for-the-badge" /></a>
     <a href="https://github.com/ronaldyganteng/Deathnotevars/network/members"> <img src="https://img.shields.io/github/forks/ronaldyganteng/Deathnotevars?color=brightgreen&logo=github&logoColor=green&style=for-the-badge" /></a>
-    <a href="https://hub.docker.com/r/alfianandaa/alf"> <img src="https://img.shields.io/docker/image-size/alfianandaa/alf/groovy?label=docker%20image%20size&logo=docker&style=for-the-badge" /></
 </p>
 
 ```
