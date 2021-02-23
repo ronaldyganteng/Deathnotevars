@@ -51,7 +51,7 @@ async def pingme(pong):
     await pong.edit(
         f"**💉 Kecepatan Internet Kamu!** "
         f"\n  ➥ `%sms` \n"
-        f"**🐣 Deathnotevars!** "
+        f"**🐣 Deathnote-vars!** "
         f"\n  ➥ `{ALIVE_NAME}` \n" % (duration)
     )
 
@@ -69,18 +69,18 @@ async def speedtst(spd):
     result = test.results.dict()
 
     await spd.edit(
-        "**Hasil Test:\n**"
+        "**Hasil Speed-Test!:\n**"
         "💉 **Dimulai Pada:** "
         f"`{result['timestamp']}` \n"
-        "💉 **Downloads:** "
+        "🌷 **Downloads:** "
         f"`{speed_convert(result['download'])}` \n"
-        "💉 **Uploads:** "
+        "🐧 **Uploads:** "
         f"`{speed_convert(result['upload'])}` \n"
-        "💉 **Pings:** "
+        "🍂 **Pings:** "
         f"`{result['ping']}` \n"
-        "💉 **ISP:** "
+        "🌙 **ISP:** "
         f"`{result['client']['isp']}` \n"
-        "✦҈͜͡➳ **BOT:** `Deathnotevars Userbot`"
+        "🌱 **BOT:** `Deathnotevars Userbot`"
     )
 
 
