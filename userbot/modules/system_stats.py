@@ -226,12 +226,12 @@ async def amireallyalive(alive):
     output = (
         f"`My Detial Deathnote-vars!. `\n"
         f"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"┣[ 🧭 `Bot Active    :` {uptime}\n"
-        f"┣[ 🐣 `User          :` {DEFAULTUSER}\n"
-        f"┣[ 🐍 `Python        :` v{python_version()}\n"
-        f"┣[ ⚙️ `Telethon      :` v{version.__version__}\n"
-        f"┣[ 👁‍🗨 `Username      :` @{user.username}\n"
-        f"┣[ 🦈 `Run Active    :` {UPSTREAM_REPO_BRANCH}\n"
+        f"┣[ 🧭 `Bot Active   :` {uptime}\n"
+        f"┣[ 🐣 `User         :` {DEFAULTUSER}\n"
+        f"┣[ 🐍 `Python       :` v{python_version()}\n"
+        f"┣[ ⚙️ `Telethon     :` v{version.__version__}\n"
+        f"┣[ 👁‍🗨 `Username     :` @{user.username}\n"
+        f"┣[ 🦈 `Run Active   :` {UPSTREAM_REPO_BRANCH}\n"
         f"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"`All modules loaded:` {len(modules)}"
     )
