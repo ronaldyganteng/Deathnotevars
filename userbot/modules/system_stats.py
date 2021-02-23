@@ -224,10 +224,10 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
-        f"`My Detail Ubot `\n"
+        f"`My Deathnote-vars BOT `\n"
         f"┏━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"┣[ 🧭 `Bot uptime :` {uptime}\n"
-        f"┣[ 👤 `User       :` {DEFAULTUSER}\n"
+        f"┣[ 🧭 `Bot Active :` {uptime}\n"
+        f"┣[ 🐣 `User       :` {DEFAULTUSER}\n"
         f"┣[ 🐍 `Python     :` v{python_version()}\n"
         f"┣[ ⚙️ `Telethon   :` v{version.__version__}\n"
         f"┣[ 👁‍🗨 `Username   :` @{user.username}\n"
