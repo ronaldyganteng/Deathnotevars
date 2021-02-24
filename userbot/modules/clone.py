@@ -26,12 +26,12 @@ async def clone(cloner):
         input_ = cloner.pattern_match.group(1)
 
     if not input_:
-        await cloner.edit("`Please reply to user or input username`")
+        await cloner.edit("`Maaf Kamu Harus REPLY Pesan Terlebih Dahulu!`")
         await asyncio.sleep(5)
         await cloner.delete()
         return
 
-    await cloner.edit("`Cloning...`")
+    await cloner.edit("`Kamu Sabar, Sedang Diproses CLONING!...`")
 
     try:
         user = await cloner.client(GetFullUserRequest(input_))
@@ -102,7 +102,7 @@ async def revert_(reverter):
             )
         )
         os.remove(PHOTO)
-    await reverter.edit("`Profile is successfully Reverted!`")
+    await reverter.edit("`Yeahh Profil Kamu Sudah Kembali Semula!`")
     await asyncio.sleep(3)
     await reverter.delete()
 
