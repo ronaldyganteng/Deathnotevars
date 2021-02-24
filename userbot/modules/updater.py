@@ -39,10 +39,10 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(event, ac_br, changelog):
     changelog_str = (
-        f"**New UPDATE available for [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
+        f"**Heii Update-an Baru Nich! [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
     )
     if len(changelog_str) > 4096:
-        await event.edit("`Changelog is too big, view the file to see it.`")
+        await event.edit("`Update Ini Cukup Besar, Tetaplah Berhati-hati Dalam Update!.`")
         file = open("output.txt", "w+")
         file.write(changelog_str)
         file.close()
@@ -59,7 +59,7 @@ async def print_changelogs(event, ac_br, changelog):
             reply_to=event.id,
         )
         await event.delete()
-        msg = await event.respond('do "`.update now` or `.update deploy`" to update.')
+        msg = await event.respond('do "`.update now` or `.update deploy`" to Update Fitur Baru!?.')
         await asyncio.sleep(15)
         await cl.delete()
         await msg.delete()
@@ -127,7 +127,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             await asyncio.sleep(5)
             return await event.delete()
         else:
-            await event.edit("`Successfully deployed!\n" "Restarting, please wait...`")
+            await event.edit("`Heii Update-an deployedmu Sudah Berhasil!\n" "Sekarang Waktunya, Me-restart Diriku!...`")
             await asyncio.sleep(15)
             await event.delete()
     else:
@@ -142,8 +142,8 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     await event.edit(
-        "`Successfully Updated!\n"
-        "Deathnotevars BOT is restarting... Wait for a second!`"
+        "`Heii UserBotmu Sudah Updated!\n"
+        "Deathnotevars BOT Me-Restart Diriku!... Tunggu Dan Sabarlah!`"
     )
     await asyncio.sleep(15)
     await event.delete()
@@ -155,7 +155,7 @@ async def update(event, repo, ups_rem, ac_br):
 
 @register(outgoing=True, pattern=r"^\.update( now| deploy|$)")
 async def upstream(event):
-    await event.edit("`Getting information....`")
+    await event.edit("`Heii Sabar Sedang Menge-check Update-an Terbaru!....`")
     conf = event.pattern_match.group(1).strip()
     off_repo = UPSTREAM_REPO_URL
     force_update = False
@@ -188,7 +188,7 @@ async def upstream(event):
     ac_br = repo.active_branch.name
     if ac_br != UPSTREAM_REPO_BRANCH:
         await event.edit(
-            "**[UPDATER]:**\n"
+            "**[UPDATE-AN!]:**\n"
             f"`Looks like you are using your own custom branch ({ac_br}). "
             "in that case, Updater is unable to identify "
             "which branch is to be merged. "
@@ -205,7 +205,7 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if conf == "deploy":
-        await event.edit("`Deploying userbot, please wait....`")
+        await event.edit("`Deploying UserBotmu, Harap Bersabar Dan Tunggulah!....`")
         await deploy(event, repo, ups_rem, ac_br, txt)
         await asyncio.sleep(15)
         await event.delete()
@@ -229,7 +229,7 @@ async def upstream(event):
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
     if conf == "now":
-        await event.edit("`Updating ProjectAlf, please wait....`")
+        await event.edit("`Heii Update Deathnotevars BOT dulu, Sabar Dan Tunggulah!....`")
         await update(event, repo, ups_rem, ac_br)
         await asyncio.sleep(15)
         await event.delete()
