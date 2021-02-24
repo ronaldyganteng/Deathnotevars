@@ -109,7 +109,7 @@ async def dyno_usage(dyno):
     """
     Get your account Dyno Usage
     """
-    await dyno.edit("`Getting Information...`")
+    await dyno.edit("`Sedang Menge-check Dyno Tersisa Saat Ini!...`")
     user_id = Heroku.account().id
     path = "/accounts/" + user_id + "/actions/get-quota"
     async with aiohttp.ClientSession() as session:
@@ -128,7 +128,7 @@ async def dyno_usage(dyno):
                 await dyno.client.send_message(
                     dyno.chat_id, f"`{r.reason}`", reply_to=dyno.id
                 )
-                await dyno.edit("`Can't get information...`")
+                await dyno.edit("`Sedang Menge-check Dyno Tersisa Saat Ini!...`")
                 return False
             result = await r.json()
             quota = result["account_quota"]
@@ -154,12 +154,12 @@ async def dyno_usage(dyno):
             AppMinutes = math.floor(AppQuotaUsed % 60)
 
             await dyno.edit(
-                "**Dyno Usage**:\n\n"
+                "**Dyno Kamu Tersisa Saat Ini!**:\n\n"
                 f"-> `Dyno usage for`  **{app.name}**:\n"
                 f"     •  **{AppHours} hour(s), "
                 f"{AppMinutes} minute(s)  -  {AppPercentage}%**"
                 "\n\n"
-                "-> `Dyno hours quota remaining this month`:\n"
+                "-> `Dyno Kamu Untuk Kuota Perbulan-nya!`:\n"
                 f"     •  **{hours} hour(s), {minutes} minute(s)  "
                 f"-  {percentage}%**"
             )
