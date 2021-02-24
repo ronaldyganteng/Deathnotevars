@@ -10,7 +10,9 @@ async def _(event):
         return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
-        await event.edit("`.invite` Maaf USER ini Bersifat PRIBADI, Tidak Dapat Di-Invite!")
+        await event.edit(
+            "`.invite` Maaf USER ini Bersifat PRIBADI, Tidak Dapat Di-Invite!"
+        )
     else:
         if not event.is_channel and event.is_group:
             # https://lonamiwebs.github.io/Telethon/methods/messages/add_chat_user.html
