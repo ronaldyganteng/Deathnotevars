@@ -75,7 +75,7 @@ async def add_new_filter(new_handler):
     elif new_handler.reply_to_msg_id and not string:
         rep_msg = await new_handler.get_reply_message()
         string = rep_msg.text
-    success = "`Filter`  **{}**  `{} successfully`."
+    success = "`Filter`  **{}**  `{} Sukses Ditambahkan!`."
     if add_filter(str(new_handler.chat_id), keyword, string, msg_id) is True:
         await new_handler.edit(success.format(keyword, "added"))
     else:
@@ -90,7 +90,7 @@ async def remove_a_filter(r_handler):
         return await r_handler.edit("`Running on Non-SQL mode!`")
     filt = r_handler.pattern_match.group(1)
     if not remove_filter(r_handler.chat_id, filt):
-        await r_handler.edit("`Filter`  **{}**  `doesn't exist`.".format(filt))
+        await r_handler.edit("`Filter`  **{}**  `Maaf Filter Kamu Sudah Di-Hapus Permanen!`.".format(filt))
     else:
         await r_handler.edit(
             "`Filter`  **{}**  `was deleted successfully`.".format(filt)
@@ -130,8 +130,8 @@ async def filters_active(event):
     transact = "`There are no filters in this chat.`"
     filters = get_filters(event.chat_id)
     for filt in filters:
-        if transact == "`There are no filters in this chat.`":
-            transact = "Active filters in this chat:\n"
+        if transact == "`Maaf Filter Kamu Tidak Ter-simpan Disini!.`":
+            transact = "Aktif Filter Saat Ini Yang Ter-simpan!:\n"
         transact += "`{}`\n".format(filt.keyword)
     await event.edit(transact)
 
