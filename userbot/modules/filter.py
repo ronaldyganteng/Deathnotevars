@@ -90,7 +90,11 @@ async def remove_a_filter(r_handler):
         return await r_handler.edit("`Running on Non-SQL mode!`")
     filt = r_handler.pattern_match.group(1)
     if not remove_filter(r_handler.chat_id, filt):
-        await r_handler.edit("`Filter`  **{}**  `Maaf Filter Kamu Sudah Di-Hapus Permanen!`.".format(filt))
+        await r_handler.edit(
+            "`Filter`  **{}**  `Maaf Filter Kamu Sudah Di-Hapus Permanen!`.".format(
+                filt
+            )
+        )
     else:
         await r_handler.edit(
             "`Filter`  **{}**  `was deleted successfully`.".format(filt)
