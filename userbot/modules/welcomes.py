@@ -131,7 +131,7 @@ async def save_welcome(event):
     elif event.reply_to_msg_id and not string:
         rep_msg = await event.get_reply_message()
         string = rep_msg.text
-    success = "`Welcome note {} for this chat.`"
+    success = "`Selamat Datang Ketikan {} Akan Muncul Disini!.`"
     if add_welcome_setting(event.chat_id, 0, string, msg_id) is True:
         await event.edit(success.format("saved"))
     else:
@@ -146,7 +146,7 @@ async def show_welcome(event):
         return await event.edit("`Running on Non-SQL mode!`")
     cws = get_current_welcome_settings(event.chat_id)
     if not cws:
-        return await event.edit("`No welcome message saved here.`")
+        return await event.edit("`Maaf Welcome Kamu Tidak Ter-simpan Disini!.`")
     elif cws.f_mesg_id:
         msg_o = await event.client.get_messages(
             entity=BOTLOG_CHATID, ids=int(cws.f_mesg_id)
@@ -165,9 +165,9 @@ async def del_welcome(event):
     except AttributeError:
         return await event.edit("`Running on Non-SQL mode!`")
     if rm_welcome_setting(event.chat_id) is True:
-        await event.edit("`Welcome note deleted for this chat.`")
+        await event.edit("`Selamat Datang Filter Telah Di-Hapus Permanen!.`")
     else:
-        await event.edit("`Do I have a welcome note here ?`")
+        await event.edit("`Apakah Selamat Datang Itu Penting ?`")
 
 
 CMD_HELP.update(
