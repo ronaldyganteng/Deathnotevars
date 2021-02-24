@@ -8,7 +8,7 @@ from github import Github
 from userbot import CMD_HELP, GIT_REPO_NAME, GITHUB_ACCESS_TOKEN, bot
 from userbot.events import register
 
-GIT_TEMP_DIR = "./projectalf/temp/"
+GIT_TEMP_DIR = "./deathnotevars/temp/"
 
 
 @register(pattern=r"\.git (.*)", outgoing=True)
@@ -63,7 +63,7 @@ async def download(event):
     if GIT_REPO_NAME is None:
         await event.edit("`Please ADD Proper Github Repo Name of your userbot`")
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.reply("Sabar Sedang Diproses! ...")
     if not os.path.isdir(GIT_TEMP_DIR):
         os.makedirs(GIT_TEMP_DIR)
     start = datetime.now()
@@ -106,11 +106,11 @@ async def git_commit(file_name, mone):
             return await mone.edit("`File Already Exists`")
     file_name = "userbot/modules/" + file_name
     if create_file:
-        file_name = file_name.replace("./projectalf/temp/", "")
+        file_name = file_name.replace("./deathnotevars/temp/", "")
         print(file_name)
         try:
             repo.create_file(
-                file_name, "ProjectAlf: Add new module", commit_data, branch="master"
+                file_name, "deathnotevars: Add new module", commit_data, branch="master"
             )
             print("Committed File")
             ccess = GIT_REPO_NAME
