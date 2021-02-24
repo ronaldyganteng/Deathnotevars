@@ -42,7 +42,9 @@ async def print_changelogs(event, ac_br, changelog):
         f"**Heii Update-an Baru Nich! [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
     )
     if len(changelog_str) > 4096:
-        await event.edit("`Update Ini Cukup Besar, Tetaplah Berhati-hati Dalam Update!.`")
+        await event.edit(
+            "`Update Ini Cukup Besar, Tetaplah Berhati-hati Dalam Update!.`"
+        )
         file = open("output.txt", "w+")
         file.write(changelog_str)
         file.close()
@@ -59,7 +61,9 @@ async def print_changelogs(event, ac_br, changelog):
             reply_to=event.id,
         )
         await event.delete()
-        msg = await event.respond('do "`.update now` or `.update deploy`" to Update Fitur Baru!?.')
+        msg = await event.respond(
+            'do "`.update now` or `.update deploy`" to Update Fitur Baru!?.'
+        )
         await asyncio.sleep(15)
         await cl.delete()
         await msg.delete()
@@ -127,7 +131,10 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             await asyncio.sleep(5)
             return await event.delete()
         else:
-            await event.edit("`Heii Update-an deployedmu Sudah Berhasil!\n" "Sekarang Waktunya, Me-restart Diriku!...`")
+            await event.edit(
+                "`Heii Update-an deployedmu Sudah Berhasil!\n"
+                "Sekarang Waktunya, Me-restart Diriku!...`"
+            )
             await asyncio.sleep(15)
             await event.delete()
     else:
@@ -229,7 +236,9 @@ async def upstream(event):
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
     if conf == "now":
-        await event.edit("`Heii Update Deathnotevars BOT dulu, Sabar Dan Tunggulah!....`")
+        await event.edit(
+            "`Heii Update Deathnotevars BOT dulu, Sabar Dan Tunggulah!....`"
+        )
         await update(event, repo, ups_rem, ac_br)
         await asyncio.sleep(15)
         await event.delete()
