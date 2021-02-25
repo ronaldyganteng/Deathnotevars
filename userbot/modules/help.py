@@ -19,15 +19,15 @@ async def hep(event):
             await asyncio.sleep(15)
             await event.delete()
         else:
-            await event.edit("Please specify a valid module name.")
+            await event.edit("Please checking for modules user-bot.")
             await asyncio.sleep(5)
             await event.delete()
     else:
         string1 = (
-            "Maaf Ini Daftar MODUL USER-BOT v7.23.4 !!\nUsage: .help <module name>\n\n"
+            "Maaf Ini Daftar MODUL USER-BOT !!\nUsage: .help <module name>\n\n"
         )
         string = "• "
-        string3 = "List for MODULES USER-BOT v.7.23.4: "
+        string3 = "List for MODULES USER-BOT !!: "
         string2 = "-------------------------------------------------------------"
         for i in CMD_HELP:
             string += "`" + str(i)
