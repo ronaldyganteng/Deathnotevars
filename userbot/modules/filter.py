@@ -97,7 +97,7 @@ async def remove_a_filter(r_handler):
         )
     else:
         await r_handler.edit(
-            "`Filter`  **{}**  `was deleted successfully`.".format(filt)
+            "`Filter`  **{}**  `Maaf Filter Kamu Sudah Di-Hapus Permanen!`.".format(filt)
         )
 
 
@@ -131,7 +131,7 @@ async def filters_active(event):
         from userbot.modules.sql_helper.filter_sql import get_filters
     except AttributeError:
         return await event.edit("`Running on Non-SQL mode!`")
-    transact = "`There are no filters in this chat.`"
+    transact = "`Aktif Filter Saat Ini Yang Ter-simpan!.`"
     filters = get_filters(event.chat_id)
     for filt in filters:
         if transact == "`Maaf Filter Kamu Tidak Ter-simpan Disini!.`":
