@@ -23,7 +23,9 @@ async def hep(event):
             await asyncio.sleep(5)
             await event.delete()
     else:
-        string1 = "Maaf Ini Daftar MODUL USER-BOT v7.23.4 !!\nUsage: .help <module name>\n\n"
+        string1 = (
+            "Maaf Ini Daftar MODUL USER-BOT v7.23.4 !!\nUsage: .help <module name>\n\n"
+        )
         string = "• "
         string3 = "List for MODULES USER-BOT v.7.23.4: "
         string2 = "-------------------------------------------------------------"
