@@ -97,7 +97,9 @@ async def remove_a_filter(r_handler):
         )
     else:
         await r_handler.edit(
-            "`Filter`  **{}**  `Maaf Filter Kamu Sudah Di-Hapus Permanen!`.".format(filt)
+            "`Filter`  **{}**  `Maaf Filter Kamu Sudah Di-Hapus Permanen!`.".format(
+                filt
+            )
         )
 
 
