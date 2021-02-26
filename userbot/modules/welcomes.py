@@ -151,10 +151,10 @@ async def show_welcome(event):
         msg_o = await event.client.get_messages(
             entity=BOTLOG_CHATID, ids=int(cws.f_mesg_id)
         )
-        await event.edit("`I am currently welcoming new users with this welcome note.`")
+        await event.edit("`List Daftar Kata Sambutan Welcome Yang Ter-simpan!.`")
         await event.reply(msg_o.message, file=msg_o.media)
     elif cws.reply:
-        await event.edit("`I am currently welcoming new users with this welcome note.`")
+        await event.edit("`List Daftar Kata Sambutan Welcome Yang Ter-simpan!.`")
         await event.reply(cws.reply)
 
 
