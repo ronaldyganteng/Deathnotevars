@@ -136,7 +136,7 @@ async def filters_active(event):
     transact = "`Maaf Filter Saat Ini Tidak Ter-simpan!.`"
     filters = get_filters(event.chat_id)
     for filt in filters:
-        if transact == "`Filter Saat Ini Yang Aktif Ter-simpan!.`":
+        if transact == "`Maaf Filter Saat Ini Tidak Ter-simpan!.`":
             transact = "Filter Saat Ini Yang Aktif Ter-simpan!:\n"
         transact += "`{}`\n".format(filt.keyword)
 
