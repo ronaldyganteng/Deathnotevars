@@ -139,8 +139,6 @@ async def filters_active(event):
         if transact == "`Filter Saat Ini Yang Aktif Ter-simpan!.`":
             transact = "Maaf Filter Saat Ini Tidak Ter-simpan!:\n"
         transact += "`{}`\n".format(filt.keyword)
-        else:
-            transact += "`{}`\n".format(filt.keyword)
 
     await event.edit(transact)
 
