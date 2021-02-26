@@ -71,7 +71,7 @@ async def clone(cloner):
     await cloner.client(
         UploadProfilePhotoRequest(file=await cloner.client.upload_file(PHOTO))
     )
-    await cloner.edit("`Profile is successfully cloned!`")
+    await cloner.edit("`Yeahh Profil Sudah Diubah & Sudah Di-Cloned!`")
     await asyncio.sleep(3)
     await cloner.delete()
 
