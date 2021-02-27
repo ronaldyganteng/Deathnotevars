@@ -26,16 +26,16 @@ from userbot.events import register
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 DEF_UNAPPROVED_MSG = (
-    "**▬▬▬▬▬▬❙۩♛۩❙▬▬▬▬▬▬**\n"
-    f"**Welcome To Room Chat** **{DEFAULTUSER}**\n"
-    f"__Saya Adalah Bot Yang Menjaga Room Chat__ **Lord {DEFAULTUSER}.** "
-    "__Mohon Jangan Melakukan Spam Ke Room Chat Lord__ "
-    "__Karna Jika Anda Melakukan Itu Saya Akan Otomatis__ "
-    f"**Memblokir Anda**, __Tunggulah Sampai__ **Lord {DEFAULTUSER}** "
-    "__Menerima__ **Pesan Anda**, __Terimakasih ヅ__\n\n"
+    "**━━━━━━━━━━━━━━━━━━━━━━━━**\n"
+    f"**WELCOME TO MY BOT NALS!** **{DEFAULTUSER}**\n"
+    f"__AKU ADALAH BOT PENJAGAAN PERSONAL CHAT!__ **USER! {DEFAULTUSER}.** "
+    "__AKU HARAP JANGAN MENYE-SPAM, NANTI AKAN DIBALES KOK!:))__ "
+    "__AKU TIDAK MAU MEMBLOKIRMU, APABILA SPAM TERUS PESAN OTOMATIS INI AKAN!__ "
+    f"**MEMBLOKIRMU SAHABAT!**, __TUNGGU DAN SABARLAH UNTUK DI ACC!__ **USER! {DEFAULTUSER}** "
+    "__ACC / MENERIMA__ **CHAT KAMU DISINI!**, __THANKS YOU 🍃🐣ヅ__\n\n"
     "**PESAN OTOMATIS**"
     "\n━━━━━━━━━━━━━━━"
-    "\n**▬▬▬▬▬▬❙۩★۩❙▬▬▬▬▬▬**"
+    "\n**━━━━━━━━━━━━━━━━━━━━━━**"
 )
 # =================================================================
 
@@ -122,7 +122,7 @@ async def permitpm(event):
                         + "](tg://user?id="
                         + str(event.chat_id)
                         + ")"
-                        + " Terblokir Karna Melakukan Spamming Ke Room Chat",
+                        + " Terblokir Karna Melakukan Spamming Ke Personal Chat!",
                     )
 
 
@@ -238,10 +238,10 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima ツ`")
+        return await apprvpm.edit("`OOKKEEYYYY, PESAN KAMU SUDAH DITERIMA!. ツ`")
 
     await apprvpm.edit(
-        f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Anda Sudah Diterima ツ`"
+        f"`HEYY!` [{name0}](tg://user?id={uid}) `PESAN KAMU SUDAH DITERIMA! ツ`"
     )
     await apprvpm.delete(getmsg)
     await message.delete()
@@ -271,13 +271,13 @@ async def disapprovepm(disapprvpm):
         name0 = str(aname.first_name)
 
     await disapprvpm.edit(
-        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak, Mohon Jangan Melakukan Spam Ke Room Chat!`"
+        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `EHH MAAF PESAN KAMU TERBLOKIR, MAKANYA JANGAN SPAMMING DONG!:(!`"
     )
 
     if BOTLOG:
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={disapprvpm.chat_id})" " `Berhasil Ditolak` !",
+            f"[{name0}](tg://user?id={disapprvpm.chat_id})" " `BERHASIL DITOLAK!` !",
         )
 
 
@@ -290,12 +290,12 @@ async def blockpm(block):
         aname = replied_user.id
         name0 = str(replied_user.first_name)
         await block.client(BlockRequest(aname))
-        await block.edit("`Anda Telah Diblokir!`")
+        await block.edit("`EHH MAAF KAMU TERBLOKIR!`")
         uid = replied_user.id
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
-        await block.edit("`Anda Telah Diblokir!`")
+        await block.edit("`EHH MAAF KAMU TERBLOKIR!`")
         name0 = str(aname.first_name)
         uid = block.chat_id
 
@@ -321,12 +321,12 @@ async def unblockpm(unblock):
         replied_user = await unblock.client.get_entity(reply.from_id)
         name0 = str(replied_user.first_name)
         await unblock.client(UnblockRequest(replied_user.id))
-        await unblock.edit("`Anda Sudah Tidak Diblokir Lagi.`")
+        await unblock.edit("`HEYY, KAMU TIDAK DIBLOKIR LAGI, SILAHKAN CHAT AGAIN!.`")
 
     if BOTLOG:
         await unblock.client.send_message(
             BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={replied_user.id})" " Tidak Lagi Diblokir.",
+            f"[{name0}](tg://user?id={replied_user.id})" " TIDAK TERBLOKIR!.",
         )
 
 
@@ -335,7 +335,7 @@ async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
         return await cust_msg.edit(
-            "**Lord Anda Harus Menyetel** `PM_AUTO_BAN` **Ke** `True`"
+            "**Kamu Anda Harus Menyetel** `PM_AUTO_BAN` **Ke** `True`"
         )
     try:
         import userbot.modules.sql_helper.globals as sql
@@ -366,30 +366,30 @@ async def add_pmsg(cust_msg):
         else:
             return await cust_msg.edit("`Mohon Balas Ke Pesan`")
 
-        await cust_msg.edit("`Pesan Berhasil Disimpan Ke Room Chat`")
+        await cust_msg.edit("`Pesan Berhasil Disimpan, Di Personal Chat!`")
 
         if BOTLOG:
             await cust_msg.client.send_message(
                 BOTLOG_CHATID,
-                f"**{status} PM Yang Tersimpan Dalam Room Chat Anda:** \n\n{msg}",
+                f"**{status} PM Yang Tersimpan Dalam Personal Chat Kamu!:** \n\n{msg}",
             )
 
     if conf.lower() == "reset":
         if custom_message is not None:
             sql.delgvar("unapproved_msg")
-            await cust_msg.edit("`Anda Telah Menghapus Pesan Custom PM Ke Default`")
+            await cust_msg.edit("`Kamu Telah Menghapus Pesan Custom PM Ke Default`")
         else:
-            await cust_msg.edit("`Pesan PM Anda Sudah Default Sejak Awal`")
+            await cust_msg.edit("`Pesan PM Kamu Sudah Default Sejak Awal`")
 
     if conf.lower() == "get":
         if custom_message is not None:
             await cust_msg.edit(
-                "**Ini Adalah Pesan PM Yang Sekarang Dikirimkan Ke Room Chat Anda:**"
+                "**Ini Adalah Pesan PM Yang Sekarang Dikirimkan Ke Personal Chat Kamu!:**"
                 f"\n\n{custom_message}"
             )
         else:
             await cust_msg.edit(
-                "*Anda Belum Menyetel Pesan PM*\n"
+                "*Kamu Belum Menyetel Pesan PM*\n"
                 f"Masih Menggunakan Pesan PM Default: \n\n`{DEF_UNAPPROVED_MSG}`"
             )
 
