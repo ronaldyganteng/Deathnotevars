@@ -94,8 +94,8 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > 8:
                 await event.respond(
-                    "`Anda Telah Di Blokir Karna Melakukan Spam Pesan`\n"
-                    "`Ke Room Chat Lord ツ`\n"
+                    "`Kamu Telah Di Blokir Karna Melakukan Spam Pesan`\n"
+                    "`Ke Personal Chat! ツ`\n"
                 )
 
                 try:
@@ -271,13 +271,13 @@ async def disapprovepm(disapprvpm):
         name0 = str(aname.first_name)
 
     await disapprvpm.edit(
-        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `EHH MAAF PESAN KAMU TERBLOKIR, MAKANYA JANGAN SPAMMING DONG!:(!`"
+        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Kamu Sudah Ditolak Pesannya, Jadi Berharap Jangan Spamming Yakk!:(!`"
     )
 
     if BOTLOG:
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={disapprvpm.chat_id})" " `BERHASIL DITOLAK!` !",
+            f"[{name0}](tg://user?id={disapprvpm.chat_id})" " `Berhasil Ditolak!` !",
         )
 
 
