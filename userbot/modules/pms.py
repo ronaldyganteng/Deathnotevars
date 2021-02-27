@@ -178,7 +178,9 @@ async def notifoff(noff_event):
     except AttributeError:
         return await noff_event.edit("`Running on Non-SQL mode!`")
     addgvar("NOTIF_OFF", True)
-    await noff_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`")
+    await noff_event.edit(
+        "`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`"
+    )
 
 
 @register(outgoing=True, pattern=r"^\.notifon$")
@@ -188,7 +190,9 @@ async def notifon(non_event):
     except AttributeError:
         return await non_event.edit("`Running on Non-SQL mode!`")
     delgvar("NOTIF_OFF")
-    await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
+    await non_event.edit(
+        "`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`"
+    )
 
 
 @register(outgoing=True, pattern=r"^\.(?:setuju|ok)\s?(.)?")
@@ -263,8 +267,7 @@ async def disapprovepm(disapprvpm):
     if BOTLOG:
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={disapprvpm.chat_id})"
-            " Berhasil Ditolak!.",
+            f"[{name0}](tg://user?id={disapprvpm.chat_id})" " Berhasil Ditolak!.",
         )
 
 
