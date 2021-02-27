@@ -11,6 +11,7 @@ from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 
 from userbot import (
+    ALIVE_NAME,
     BOTLOG,
     BOTLOG_CHATID,
     CMD_HELP,
@@ -18,7 +19,6 @@ from userbot import (
     LASTMSG,
     LOGS,
     PM_AUTO_BAN,
-    ALIVE_NAME,
 )
 from userbot.events import register
 
@@ -35,7 +35,8 @@ DEF_UNAPPROVED_MSG = (
     "__Menerima__ **Pesan Anda**, __Terimakasih ヅ__\n\n"
     "**PESAN OTOMATIS**"
     "\n━━━━━━━━━━━━━━━"
-    "\n**▬▬▬▬▬▬❙۩★۩❙▬▬▬▬▬▬**")
+    "\n**▬▬▬▬▬▬❙۩★۩❙▬▬▬▬▬▬**"
+)
 # =================================================================
 
 
@@ -106,8 +107,7 @@ async def permitpm(event):
                             BOTLOG_CHATID,
                             "Terjadi Masalah Saat Menghitung Pesan Pribadi, Mohon Restart Bot!",
                         )
-                    return LOGS.info(
-                        "Penghitungan Pesan Pribadi Terjadi Kesalahan")
+                    return LOGS.info("Penghitungan Pesan Pribadi Terjadi Kesalahan")
 
                 await event.client(BlockRequest(event.chat_id))
                 await event.client(ReportSpamRequest(peer=event.chat_id))
@@ -184,7 +184,9 @@ async def notifoff(noff_event):
     except AttributeError:
         return await noff_event.edit("`Running on Non-SQL mode!`")
     addgvar("NOTIF_OFF", True)
-    await noff_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`")
+    await noff_event.edit(
+        "`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`"
+    )
 
 
 @register(outgoing=True, pattern=r"^\.notifon$")
@@ -195,7 +197,9 @@ async def notifon(non_event):
     except AttributeError:
         return await non_event.edit("`Running on Non-SQL mode!`")
     delgvar("NOTIF_OFF")
-    await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
+    await non_event.edit(
+        "`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`"
+    )
 
 
 @register(outgoing=True, pattern=r"^\.(?:setuju|ok)\s?(.)?")
@@ -236,14 +240,15 @@ async def approvepm(apprvpm):
     except IntegrityError:
         return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima ツ`")
 
-    await apprvpm.edit(f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Anda Sudah Diterima ツ`")
+    await apprvpm.edit(
+        f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Anda Sudah Diterima ツ`"
+    )
     await apprvpm.delete(getmsg)
     await message.delete()
 
     if BOTLOG:
         await apprvpm.client.send_message(
-            BOTLOG_CHATID,
-            "#DITERIMA\n" + "User: " + f"[{name0}](tg://user?id={uid})"
+            BOTLOG_CHATID, "#DITERIMA\n" + "User: " + f"[{name0}](tg://user?id={uid})"
         )
 
 
@@ -272,8 +277,7 @@ async def disapprovepm(disapprvpm):
     if BOTLOG:
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={disapprvpm.chat_id})"
-            " `Berhasil Ditolak` !",
+            f"[{name0}](tg://user?id={disapprvpm.chat_id})" " `Berhasil Ditolak` !",
         )
 
 
@@ -330,7 +334,9 @@ async def unblockpm(unblock):
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
-        return await cust_msg.edit("**Lord Anda Harus Menyetel** `PM_AUTO_BAN` **Ke** `True`")
+        return await cust_msg.edit(
+            "**Lord Anda Harus Menyetel** `PM_AUTO_BAN` **Ke** `True`"
+        )
     try:
         import userbot.modules.sql_helper.globals as sql
     except AttributeError:
@@ -364,7 +370,8 @@ async def add_pmsg(cust_msg):
 
         if BOTLOG:
             await cust_msg.client.send_message(
-                BOTLOG_CHATID, f"**{status} PM Yang Tersimpan Dalam Room Chat Anda:** \n\n{msg}"
+                BOTLOG_CHATID,
+                f"**{status} PM Yang Tersimpan Dalam Room Chat Anda:** \n\n{msg}",
             )
 
     if conf.lower() == "reset":
@@ -377,7 +384,8 @@ async def add_pmsg(cust_msg):
     if conf.lower() == "get":
         if custom_message is not None:
             await cust_msg.edit(
-                "**Ini Adalah Pesan PM Yang Sekarang Dikirimkan Ke Room Chat Anda:**" f"\n\n{custom_message}"
+                "**Ini Adalah Pesan PM Yang Sekarang Dikirimkan Ke Room Chat Anda:**"
+                f"\n\n{custom_message}"
             )
         else:
             await cust_msg.edit(
@@ -408,4 +416,6 @@ CMD_HELP.update(
         "\nUsage: Menghapus pesan PM ke default"
         "\n\nPesan Pribadi yang belum diterima saat ini tidak dapat disetel"
         "\nke teks format kaya bold, underline, link, dll."
-        "\nPesan akan terkirim normal saja"})
+        "\nPesan akan terkirim normal saja"
+    }
+)
