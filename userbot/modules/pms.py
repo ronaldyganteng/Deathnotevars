@@ -23,17 +23,17 @@ from userbot.events import register
 # ========================= CONSTANTS ============================
 DEF_UNAPPROVED_MSG = (
     "**-EN**\n"
-    "`Sorry, seems I haven't approved you to PM yet.\n`"
-    "`Please wait for me to look in.\n`"
-    "`Until then, please don't spam My PM...\n`"
+    "`Sorry, you have to wait for the confirmation of the owner of this account.\n`"
+    "`So You Have To Be Patient And Wait For The Owner Of This Account To Confirm You.\n`"
+    "`While you are waiting, don't spam it!...\n`"
     "`Thank You\n\n`"
     "`*This is an automated message.\n`"
     "\n**-ID**\n"
-    "`Maaf, Kamu Sepertinya belum diijinkan mengirim pesan.\n`"
-    "`Tunggu saja sampai aku melihat pesanmu.\n`"
-    "`Sembari menunggu jangan spam pesan...\n`"
+    "`Maaf, Kamu Harus Menunggu Konfirmasi Pemilik Akun Ini..\n`"
+    "`Jadi Kamu Harus Sabar Dan Tunggulah Pemilik Akun Ini Mengkonfirmasi Kamu.\n`"
+    "`Sembari Kamu Nunggu, Janganlah Kamu Spam Yakk!...\n`"
     "`Thank You`\n\n`"
-    "`Aku **Bot** :D.\n"
+    "`Aku Assissten **BOT** 😂🥰.\n"
 )
 # =================================================================
 
@@ -90,8 +90,8 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > 4:
                 await event.respond(
-                    "`You were spamming my Mastor's PM, which I didn't like.`\n"
-                    "`You have been BLOCKED and reported as SPAM, until further notice.`"
+                    "`Kamu Telah Di Blokir Karna Melakukan Spam Pesan.`\n"
+                    "`Ke Personal Chat!ツ.`"
                 )
 
                 try:
@@ -101,9 +101,9 @@ async def permitpm(event):
                     if BOTLOG:
                         await event.client.send_message(
                             BOTLOG_CHATID,
-                            "Count PM is seemingly going retard, plis restart bot!",
+                            "Terjadi Masalah Saat Menghitung Pesan Pribadi, Mohon Restart Bot!",
                         )
-                    return LOGS.info("CountPM wen't rarted boi")
+                    return LOGS.info("Penghitungan Pesan Pribadi Terjadi Kesalahan")
 
                 await event.client(BlockRequest(event.chat_id))
                 await event.client(ReportSpamRequest(peer=event.chat_id))
@@ -118,7 +118,7 @@ async def permitpm(event):
                         + "](tg://user?id="
                         + str(event.chat_id)
                         + ")"
-                        + " was just another retarded nibba",
+                        + " Terblokir Karna Melakukan Spamming Ke Personal Chat!",
                     )
 
 
@@ -178,7 +178,7 @@ async def notifoff(noff_event):
     except AttributeError:
         return await noff_event.edit("`Running on Non-SQL mode!`")
     addgvar("NOTIF_OFF", True)
-    await noff_event.edit("`Notifications from unapproved PM's are silenced!`")
+    await noff_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`")
 
 
 @register(outgoing=True, pattern=r"^\.notifon$")
@@ -188,11 +188,12 @@ async def notifon(non_event):
     except AttributeError:
         return await non_event.edit("`Running on Non-SQL mode!`")
     delgvar("NOTIF_OFF")
-    await non_event.edit("`Notifications from unapproved PM's unmuted!`")
+    await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
 
 
-@register(outgoing=True, pattern=r"^\.approve$")
+@register(outgoing=True, pattern=r"^\.(?:setuju|ok)\s?(.)?")
 async def approvepm(apprvpm):
+    """For .ok command, give someone the permissions to PM you."""
     try:
         from userbot.modules.sql_helper.globals import gvarstatus
         from userbot.modules.sql_helper.pm_permit_sql import approve
@@ -226,18 +227,18 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        return await apprvpm.edit("`User may already be approved.`")
+        return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima ツ.`")
 
-    await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `approved to PM!`")
+    await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `Pesan Anda Sudah Diterima ツ`")
 
     if BOTLOG:
         await apprvpm.client.send_message(
             BOTLOG_CHATID,
-            "#APPROVED\n" + "User: " + f"[{name0}](tg://user?id={uid})",
+            "#DITERIMA!\n" + "User: " + f"[{name0}](tg://user?id={uid})",
         )
 
 
-@register(outgoing=True, pattern=r"^\.disapprove$")
+@register(outgoing=True, pattern=r"^\.(?:tolak|nopm)\s?(.)?")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
@@ -256,14 +257,14 @@ async def disapprovepm(disapprvpm):
         name0 = str(aname.first_name)
 
     await disapprvpm.edit(
-        f"[{name0}](tg://user?id={disapprvpm.chat_id}) `Disaproved to PM!`"
+        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak, Mohon Jangan Melakukan Spam Ke Personal Chat!`"
     )
 
     if BOTLOG:
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
             f"[{name0}](tg://user?id={disapprvpm.chat_id})"
-            " was disapproved to PM you.",
+            " Berhasil Ditolak!.",
         )
 
 
@@ -376,10 +377,10 @@ async def add_pmsg(cust_msg):
 
 CMD_HELP.update(
     {
-        "pmpermit": ">`.approve`"
-        "\nUsage: Approves the mentioned/replied person to PM."
-        "\n\n>`.disapprove`"
-        "\nUsage: Disapproves the mentioned/replied person to PM."
+        "pmpermit": ">`.setuju | .ok`"
+        "\nUsage: Menerima pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm."
+        "\n\n>`.tolak | .nopm`"
+        "\nUsage: Menolak pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm."
         "\n\n>`.block`"
         "\nUsage: Blocks the person."
         "\n\n>`.unblock`"
