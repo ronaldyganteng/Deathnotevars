@@ -51,7 +51,7 @@ async def pingme(pong):
     await pong.edit(
         f"**💉 𝓚𝓮𝓬𝓮𝓹𝓪𝓽𝓪𝓷 𝓘𝓷𝓽𝓮𝓻𝓷𝓮𝓽 𝓚𝓪𝓶𝓾!** "
         f"\n  ➥ `%sms` \n"
-        f"**🐣 𝓓𝓔𝓐𝓣𝓗𝓝𝓞𝓣𝓔-𝓥𝓐𝓡𝓢!** "
+        f"**🐣 𝙳𝙴𝙰𝚃𝙷𝙽𝙾𝚃𝙴-𝚅𝙰𝚁𝚂!** "
         f"\n  ➥ `{ALIVE_NAME}` \n" % (duration)
     )
 
