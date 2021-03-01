@@ -224,16 +224,17 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
-        f"`My Detail Deathnote-vars!. `\n"
+        f"`My Detail 𝓓𝓔𝓐𝓣𝓗𝓝𝓞𝓣𝓔-𝓥𝓐𝓡𝓢!. `\n"
         f"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"┣[ 🧭 `Bot Active   :` {uptime}\n"
-        f"┣[ 🐣 `User         :` {DEFAULTUSER}\n"
-        f"┣[ 🐍 `Python       :` v{python_version()}\n"
-        f"┣[ ⚙️ `Telethon     :` v{version.__version__}\n"
-        f"┣[ 👁‍🗨 `Username     :` @{user.username}\n"
-        f"┣[ 🦈 `Run Active   :` {UPSTREAM_REPO_BRANCH}\n"
+        f"┣[ 🧭 `𝓑𝓸𝓽 𝓐𝓬𝓽𝓲𝓿𝓮     :` {uptime}\n"
+        f"┣[ 🐣 `𝓤𝓼𝓮𝓻          :` {DEFAULTUSER}\n"
+        f"┣[ 🐍 `𝓟𝔂𝓽𝓱𝓸𝓷        :` v{python_version()}\n"
+        f"┣[ ⚙️ `𝓐𝓮𝓼𝓽𝓱𝓮𝓷𝓽𝓲𝓬      :` v{version.__version__}\n"
+        f"┣[ 👁‍🗨 `𝓒𝓻𝓮𝓪𝓽𝓸𝓻 𝓑𝔂     :` @{user.username}\n"
+        f"┣[ 🦈 `𝓡𝓾𝓷 𝓐𝓬𝓽𝓲𝓿𝓮     :` {UPSTREAM_REPO_BRANCH}\n"
+        f"┣[ 💉 `𝓑𝓸𝓽 𝓥𝓮𝓻𝓼𝔂𝓬     :` {BOT_VER}\n"
         f"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"`All modules loaded:` {len(modules)}"
+        f"`All 𝓜𝓸𝓭𝓾𝓵𝓮𝓼 𝓛𝓸𝓪𝓭𝓲𝓷𝓰 :` {len(modules)}"
     )
     if ALIVE_LOGO:
         try:
