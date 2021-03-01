@@ -23,7 +23,7 @@ from userbot.events import register
 # ========================= CONSTANTS ============================
 DEF_UNAPPROVED_MSG = (
     "**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**\n"
-    "\n**━*📌 Welcome To My Personal Chat! *━**\n"
+    "\n**━ 📌 Welcome To My Personal Chat! ━**\n"
     "**━━━━━━━━━━━━━━━━━━━━━━━━━**\n"
     "`🐣 Sorry, You Have To Wait For The 🍂 Confirmation Of The Owner Of This Account.\n`"
     "`🌱 So You Have To Be Patient And Wait For 💉 The Owner Of This Account To Confirm You.\n`"
