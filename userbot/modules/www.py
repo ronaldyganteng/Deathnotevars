@@ -45,13 +45,13 @@ async def pingme(pong):
     """ For .ping command, ping the userbot from any chat.  """
     await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    await pong.edit("**Kecepatan Internet Kamu!**")
+    await pong.edit("**𝓚𝓮𝓬𝓮𝓹𝓪𝓽𝓪𝓷 𝓘𝓷𝓽𝓮𝓻𝓷𝓮𝓽 𝓚𝓪𝓶𝓾!**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**💉 Kecepatan Internet Kamu!** "
+        f"**💉 𝓚𝓮𝓬𝓮𝓹𝓪𝓽𝓪𝓷 𝓘𝓷𝓽𝓮𝓻𝓷𝓮𝓽 𝓚𝓪𝓶𝓾!** "
         f"\n  ➥ `%sms` \n"
-        f"**🐣 Deathnote-vars!** "
+        f"**🐣 𝓓𝓔𝓐𝓣𝓗𝓝𝓞𝓣𝓔-𝓥𝓐𝓡𝓢!** "
         f"\n  ➥ `{ALIVE_NAME}` \n" % (duration)
     )
 
@@ -80,7 +80,7 @@ async def speedtst(spd):
         f"`{result['ping']}` \n"
         "🌙 **ISP :** "
         f"`{result['client']['isp']}` \n"
-        "🌱 **Bot :** `Deathnotevars Userbot`"
+        "🌱 **Bot :** `𝓓𝓔𝓐𝓣𝓗𝓝𝓞𝓣𝓔-𝓥𝓐𝓡𝓢! Userbot`"
     )
 
 
