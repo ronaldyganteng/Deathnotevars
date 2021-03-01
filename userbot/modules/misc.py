@@ -99,7 +99,7 @@ async def repeat(rep):
 @register(outgoing=True, pattern=r"^\.repo$")
 async def repo_is_here(wannasee):
     await wannasee.edit(
-        "Click My Repositories [CLIK DISINI](https://github.com/ronaldyganteng/Deathnotevars) is Deathnotevars BOT."
+        "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━\n \n[┣━•━─[ 𝙳𝙴𝙰𝚃𝙷𝙽𝙾𝚃𝙴-𝚅𝙰𝚁𝚂! ]─━•━┫](https://github.com/ronaldyganteng/Deathnotevars) \n \n┗━━━━━━━━━━━━━━━━━━━━━━━━━━━\n     \n"
     )
 
 
