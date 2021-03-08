@@ -22,15 +22,18 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 DEF_UNAPPROVED_MSG = (
-    "**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**\n"
+    "**┏▼━━━━━━━━━━━━━━━━━━━━━━━━━━━▼┓**\n"
     "\n**━ 📌 Welcome To My Personal Chat! ━**\n"
-    "**━━━━━━━━━━━━━━━━━━━━━━━━━**\n"
-    "`🐣 Sorry, You Have To Wait For The 🍂 Confirmation Of The Owner Of This Account.\n`"
-    "`🌱 So You Have To Be Patient And Wait For 💉 The Owner Of This Account To Confirm You.\n`"
-    "`🌷 While you are waiting, don't spam it!...\n`"
-    "`✨ Thank You\n\n`"
-    "**------------------------------**\n"
-    "🦃 Aku Assisstent Nals! **BOT** 😂🥰\n"
+    "**┗▲━━━━━━━━━━━━━━━━━━━━━━━━━━━▲┛**\n"
+
+    "`🐣 Ehh iya, kamu kalau kamu nge-chat dia.\n`"
+    "`🌱 Kudu sabar yakk sayang!.\n`"
+    "`🌷 Jangan Nye-spam dehh, aku tidak suka spam begitu!.\n`"
+    "`✨ Dan tunggulah dia konfirmasi pesanmu:))\n`"
+
+    "🦃 Aku Assisstent Penjaga Personal Chat! **BOT** 😂🥰\n"
+    "**╾──────────────────────────╼**\n"
+
     "\n**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**"
 )
 # =================================================================
@@ -232,6 +235,8 @@ async def approvepm(apprvpm):
         return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima ツ.`")
 
     await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `Pesan Anda Sudah Diterima ツ`")
+    await apprvpm.delete(getmsg)
+    await message.delete()
 
     if BOTLOG:
         await apprvpm.client.send_message(
