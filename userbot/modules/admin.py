@@ -381,23 +381,21 @@ async def unmoot(unmot):
 
     if unmute(unmot.chat_id, user.id) is False:
         return await unmot.edit("`Error! User probably already unmuted.`")
-    else:
+    try:
+        await unmot.client(EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
+        await unmot.edit("```Unmuted Successfully```")
+        await sleep(3)
+        await unmot.delete()
+    except UserIdInvalidError:
+        return await unmot.edit("`Uh oh my unmute logic broke!`")
 
-        try:
-            await unmot.client(EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
-            await unmot.edit("```Unmuted Successfully```")
-            await sleep(3)
-            await unmot.delete()
-        except UserIdInvalidError:
-            return await unmot.edit("`Uh oh my unmute logic broke!`")
-
-        if BOTLOG:
-            await unmot.client.send_message(
-                BOTLOG_CHATID,
-                "#UNMUTE\n"
-                f"USER: [{user.first_name}](tg://user?id={user.id})\n"
-                f"CHAT: {unmot.chat.title}(`{unmot.chat_id}`)",
-            )
+    if BOTLOG:
+        await unmot.client.send_message(
+            BOTLOG_CHATID,
+            "#UNMUTE\n"
+            f"USER: [{user.first_name}](tg://user?id={user.id})\n"
+            f"CHAT: {unmot.chat.title}(`{unmot.chat_id}`)",
+        )
 
 
 @register(incoming=True)
@@ -597,7 +595,7 @@ async def tagaso(event):
 @register(outgoing=True, pattern=r"^\.admins$")
 async def get_admin(show):
     info = await show.client.get_entity(show.chat_id)
-    title = info.title if info.title else "this chat"
+    title = info.title or "this chat"
     mentions = f"<b>Admins in {title}:</b> \n"
     try:
         async for user in show.client.iter_participants(
@@ -701,18 +699,10 @@ async def kick(usr):
 @register(outgoing=True, pattern=r"^\.users ?(.*)")
 async def get_users(show):
     info = await show.client.get_entity(show.chat_id)
-    title = info.title if info.title else "this chat"
+    title = info.title or "this chat"
     mentions = "Users in {}: \n".format(title)
     try:
-        if not show.pattern_match.group(1):
-            async for user in show.client.iter_participants(show.chat_id):
-                if not user.deleted:
-                    mentions += (
-                        f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
-                    )
-                else:
-                    mentions += f"\nDeleted Account `{user.id}`"
-        else:
+        if show.pattern_match.group(1):
             searchq = show.pattern_match.group(1)
             async for user in show.client.iter_participants(
                 show.chat_id, search=f"{searchq}"
@@ -723,15 +713,22 @@ async def get_users(show):
                     )
                 else:
                     mentions += f"\nDeleted Account `{user.id}`"
+        else:
+            async for user in show.client.iter_participants(show.chat_id):
+                if user.deleted:
+                    mentions += f"\nDeleted Account `{user.id}`"
+                else:
+                    mentions += (
+                        f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
+                    )                    
     except ChatAdminRequiredError as err:
         mentions += " " + str(err) + "\n"
     try:
         await show.edit(mentions)
     except MessageTooLongError:
         await show.edit("Damn, this is a huge group. Uploading users lists as file.")
-        file = open("userslist.txt", "w+")
-        file.write(mentions)
-        file.close()
+        with open("userslist.txt", "w+") as file:
+            file.write(mentions)
         await show.client.send_file(
             show.chat_id,
             "userslist.txt",
